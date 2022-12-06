@@ -1,0 +1,78 @@
+(1)当前环境：
+python 3.7.15
+ubuntu version Ubuntu 18.04LTS \n \l
+pip3 -V 22.0.4
+tensorflow-cpu(2.11)
+tensorflow-datasets==2.1.0
+tf_models_official tf_models_official-2.11.0
+(2)pip is being invoked by an old script wrapper. This will fail in a future version of pip.
+Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
+To avoid this problem you can 【invoke Python with '-m pip'】 instead of running pip directly.
+python3 -m pip 
+Note: 安装cpu版本，使用匹配的pip安装如下
+sudo python3 -m pip install tensorflow-cpu==2.9.0
+(3)中间import时，缺失模块问题。一般需要安装下，再重新配置和编译下python
+(4)python3 -m pip install -U -q "tensorflow-cpu==2.9.0" "tf-models-official"
+报错  Collecting numpy==1.17.3
+        Downloading numpy-1.17.3-cp38-cp38-manylinux1_x86_64.whl (20.5 MB) 
+(5)b"Error: bad label format {res_net|ResNet}|{input:|output:
+Note: (3)(4)在跑模型时，出现的问题。4情况出现，处理办法是单独安装；(5)是image标签格式问题，暂时未解决
+/***************************************************************************************************
+tf.Keras
+models: Sequencetial、 API?
+step
+addd -1 prepare data
+addd 0 preprocess data
+ 
+1 setup models
+model = tf.keras.Sequenceia ([
+    tf.keras.Dense(input_shap(28,28))
+    tf.keras.Fanse()
+    
+])
+2 compile
+model.compile[,,]
+3 train model 
+addd 3.1 model.fit
+addd
+adddd 3.2 evaluation
+        model.evaluation
+    3.3 prediction
+        probility_model_predict = tf.keras.Sequenceia([])
+    3.4 verify
+        plot
+    
+//probobility_model.predict = tf.keras.Sequencial[
+//model, tf.keras.layer.softmax()
+//]
+4 Use Model
+prodection.single = probility_model.predict([])
+**************************************************************************************************/
+(6)Note: runing output
+root@ubuntu:/opt/tensorflow# python3 keras_sequential_model.py 
+2022-12-06 09:46:58.242182: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-12-06 09:47:01.146036: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-12-06 09:47:01.146109: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-12-06 09:47:10.350293: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-12-06 09:47:10.353945: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-12-06 09:47:10.353977: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+
+2022-12-06 09:47:22.873928: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-12-06 09:47:22.877801: W tensorflow/compiler/xla/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: UNKNOWN ERROR (303)
+2022-12-06 09:47:22.878052: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (ubuntu): /proc/driver/nvidia/version does not exist
+2022-12-06 09:47:22.885787: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2
+Number of weights after calling the model: 6
+Number of weights after calling the model: 6
+Model: "sequential_3"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ dense_7 (Dense)             (1, 2)                    10
+
+ dense_8 (Dense)             (1, 3)                    9
+
+ dense_9 (Dense)             (1, 4)                    16
+                                                                                                                                                                                            77,1          Bot

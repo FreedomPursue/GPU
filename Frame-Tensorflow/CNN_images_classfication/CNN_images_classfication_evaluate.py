@@ -1,5 +1,6 @@
 # https://colab.research.google.com/
 # epochs 1, running cost 6s.
+# dense is the full connection layer, the first param: units is neuration numbers.
 import tensorflow as tf
 
 from tensorflow.keras import datasets, layers, models
